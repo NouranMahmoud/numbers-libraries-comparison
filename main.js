@@ -24,14 +24,19 @@
   const selectorCountry = $('.country');
   const formatInput = $('.format');
   const formatBox = $('.format-box');
+  const localeBox = $('.locale-box');
 
   //output elements
   const output = $('.output');
   const rawOutput = $('.raw');
   const prosCons = $('.pros-cons');
 
+  // default values
+  formatInput.val('$ 0.0 a');
+  input.val(1234);
+
   //init app
-  input.on('keyup', function(e){
+  input.on('keyup', function inputChange(e){
     let selectedLibrary = library.val();
     let num = input.val();
     let locale = selectorCountry.val();
@@ -83,14 +88,18 @@
       output.text('0');
       rawOutput.text('0');
     }
-  });
+
+    return inputChange;
+  }());
 
   library.on('change', function libraryChange(e){
     prosCons.show().not('.'+library.val()).hide();
     if (library.val() === 'numbro' || library.val() === 'numeral') {
       formatBox.show();
+      localeBox.show();
     } else {
       formatBox.hide();
+      localeBox.hide();
     }
 
     return libraryChange;
