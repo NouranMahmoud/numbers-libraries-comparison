@@ -20,6 +20,7 @@
 
   // input elements
   const library = $('.library');
+  const libName = $('.lib-name');
   const input = $('.converter-num');
   const selectorCountry = $('.country');
   const formatInput = $('.format');
@@ -108,6 +109,7 @@
   abbrFormat.on('keyup', onChange);
 
   library.on('change', function libraryChange(e){
+    libName.text(library.val());
     prosCons.show().not('.'+library.val()).hide();
     if (library.val() === 'numbro' || library.val() === 'numeral') {
       formatBox.show();
