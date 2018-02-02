@@ -22,6 +22,8 @@
   const library = $('.library');
   const input = $('.converter-num');
   const selectorCountry = $('.country');
+  const formatInput = $('.format');
+  const formatBox = $('.format-box');
 
   //output elements
   const output = $('.output');
@@ -29,19 +31,18 @@
   const prosCons = $('.pros-cons');
 
   //init app
-  prosCons.not('.'+library.val()).hide();
-
   input.on('keyup', function(e){
     let selectedLibrary = library.val();
     let num = input.val();
     let locale = selectorCountry.val();
+    let format = formatInput.val();
     let formatedNum;
     let rawValue;
 
     switch (selectedLibrary) {
       case 'numeral':
         numeral.locale(locale);
-        formatedNum = numeral(num).format('$0.[0000000] a');
+        formatedNum = numeral(num).format(format);
         rawValue = numeral(formatedNum).value();
         break;
 
@@ -63,7 +64,7 @@
         break;
 
       case 'numbro':
-        formatedNum = numbro(num).format('0,[0]a');
+        formatedNum = numbro(num).format(format);
         rawValuem = num;
         debugger;
         break;
@@ -84,7 +85,15 @@
     }
   });
 
-  library.on('change', function(e){
+  library.on('change', function libraryChange(e){
     prosCons.show().not('.'+library.val()).hide();
-  });
+    if (library.val() === 'numbro' || library.val() === 'numeral') {
+      formatBox.show();
+    } else {
+      formatBox.hide();
+    }
+
+    return libraryChange;
+  }());
+
 })()

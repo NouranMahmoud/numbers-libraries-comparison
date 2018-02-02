@@ -4,25 +4,42 @@
   <title>Abbreviation</title>
 </head>
 <body>
-<select class="library">
-  <option value="numeral">numeraljs</option>
-  <option value="number-abbreviate">number-abbreviate</option>
-  <option value="approximate-number">approximate-number</option>
-  <option value="numbro">numbro</option>
-</select>
-<select class="country">
-  <option value="nl-nl">Netherlands Dutch</option>
-  <option value="de">Germany</option>
-  <option value="ru">Russian</option>
-  <option value="chs">Chinese</option>
-</select>
+<div>
+ <label>Choose Library</label>
+  <select class="library">
+    <option value="numeral">numeraljs</option>
+    <option value="number-abbreviate">number-abbreviate</option>
+    <option value="approximate-number">approximate-number</option>
+    <option value="numbro">numbro</option>
+  </select> 
+</div>
+
+<div>
+  <label>Choose locale</label>
+  <select class="country">
+    <option value="nl-nl">Netherlands Dutch</option>
+    <option value="de">Germany</option>
+    <option value="ru">Russian</option>
+    <option value="chs">Chinese</option>
+  </select>
+</div>
+
+<div>
+  <label>Your Number</label>
+  <input type="number" class="converter-num">
+</div>
+
+<div class="format-box">
+  <label for="format">Your Format</label>
+  <input type="text" name="format" class="format">
+</div>
+
 
 <div>
   Number = <span class="output">0</span>
   <br/>
   raw = <span class="raw">0</span>
 </div>
-<input type="number" class="converter-num">
 
 <div class='pros-cons numeral'>
   Pros
