@@ -4,6 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "start": "node_modules/.bin/parcel index.html",
+    "deploy": "node_modules/.bin/parcel build index.html",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
@@ -14,6 +16,6 @@
     "number-abbreviate": "^2.0.0",
     "numbro": "^2.0.5",
     "numeral": "^2.0.6",
-    "parceljs": "0.0.1"
+    "parcel-bundler": "^1.5.1"
   }
 }
