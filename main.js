@@ -65,7 +65,7 @@
 
       case 'numbro':
         formatedNum = numbro(num).format(format);
-        rawValuem = num;
+        rawValuem = numbro(formatedNum).value();
         debugger;
         break;
 
