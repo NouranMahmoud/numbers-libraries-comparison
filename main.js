@@ -35,8 +35,9 @@
   formatInput.val('$ 0.0 a');
   input.val(1234);
 
-  //init app
-  input.on('keyup', function inputChange(e){
+  // init app and event handler function
+
+  const onChange = (function onChange(e) {
     let selectedLibrary = library.val();
     let num = input.val();
     let locale = selectorCountry.val();
@@ -88,9 +89,13 @@
       output.text('0');
       rawOutput.text('0');
     }
+    return onChange;
+  }())
 
-    return inputChange;
-  }());
+  selectorCountry.on('change', onChange);
+  library.on('change', onChange);
+  input.on('keyup', onChange);
+  formatInput.on('keyup', onChange);
 
   library.on('change', function libraryChange(e){
     prosCons.show().not('.'+library.val()).hide();
